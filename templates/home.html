@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Press+Start+2P&family=Secular+One&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Press+Start+2P&family=Secular+One&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0px 0px;
+
+    }
+
+    body {
+      background-image: url(diabetes/db1.jpg);
+      box-sizing: border-box;
+    }
+
+    .headr {
+      background-color: rgb(88, 22, 22);
+      height: 130px;
+      width: 100%;
+    }
+
+    .headr h1 {
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      text-align: center;
+      /* font-family: 'Secular One', sans-serif; */
+      /* margin-top: 30px; */
+      font-family: 'Secular One', sans-serif;
+
+      padding: 50px;
+      color: rgb(248, 217, 216);
+    }
+
+    .container {
+      /* border: 2px solid white; */
+      border: 8px solid rgb(88, 22, 22);
+      width: 55%;
+      padding: 50px;
+      margin: 106px auto;
+      border-radius: 25px;
+      /* font-family: 'Play', sans-serif; */
+      background-color: rgb(237, 171, 165);
+    }
+
+    .container h1 {
+      text-align: center;
+      margin: 20px;
+      color: rgb(23, 12, 12);
+      text-decoration: underline;
+      font-family: 'Secular One', sans-serif;
+
+    }
+
+    .container h3 {
+      text-align: center;
+      margin-top: 20px;
+      padding-top: 10px;
+      color: rgb(23, 12, 12);
+    }
+
+    .divi {
+      padding: 7px;
+      margin: 9px auto;
+      font-size: 18px;
+      text-align: right;
+
+    }
+
+    .ent {
+      display: inline;
+      margin: 27px 12px;
+      padding: 16px;
+      position: relative;
+      left: 94px;
+      top: 42px;
+      font-size: 20px;
+      font-family: 'Secular One', sans-serif;
+
+    }
+
+    .divi div {
+      text-align: left;
+      display: block;
+    }
+
+    .divi input {
+
+      padding: 5px;
+      text-align: center;
+      display: inline;
+      font-family: 'Play', sans-serif;
+      border-radius: 8px;
+      font-size: 18px;
+      position: relative;
+      width: 350px;
+      right: 100px;
+      background-color: rgb(249, 195, 185);
+    }
+
+    .btn {
+      color: white;
+      background: black;
+      cursor: pointer;
+      padding: 4px 14px;
+      border: 2px solid white;
+      border-radius: 10px;
+      margin: 6px;
+      font-size: 15px;
+      font-family: 'Play', sans-serif;
+
+    }
+
+    .btn:hover {
+      background-color: gray;
+    }
+
+    #bty {
+      display: block;
+      margin: 37px auto;
+      width: 301px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <header class="headr">
+      <h1>Boston House Price Prediction</h1>
+    </header>
+    <div class="container">
+      <h1>Prediction Form</h1>
+      <h3>Fill the following details:</h3>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <div class="ent">High BP:</div>
+        <div class="divi">
+          <input type="text" name="HighBP" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">High Cholestrol:</div>
+        <div class="divi">
+          <input type="text" name="HighChol" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">Cholestrol Check:</div>
+        <div class="divi">
+          <input type="text" name="CholCheck" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">BMI:</div>
+        <div class="divi">
+          <input type="text" name="BMI" placeholder="Enter BMI" required="required" />
+        </div>
+        <div class="ent">Smoker:</div>
+        <div class="divi">
+          <input type="text" name="Smoker" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">Stroke:</div>
+        <div class="divi">
+          <input type="text" name="Stroke" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">Heart Disease or Attack:</div>
+        <div class="divi">
+          <input type="text" name="HeartDiseaseorAttack" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">Physical Activity:</div>
+        <div class="divi">
+          <input type="text" name="PhysActivity" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">Fruits:</div>
+        <div class="divi">
+          <input type="text" name="Fruits" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">Veggies:</div>
+        <div class="divi">
+          <input type="text" name="Veggies" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">Heavy Alcohol Consmp:</div>
+        <div class="divi">
+          <input type="text" name="HvyAlcoholConsump" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">Any Health care:</div>
+        <div class="divi">
+          <input type="text" name="AnyHealthcare" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">No Doc BC Cost:</div>
+        <div class="divi">
+          <input type="text" name="NoDocbcCost" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">General Health:</div>
+        <div class="divi">
+          <input type="text" name="GenHlth" placeholder="Enter (1/2/3/4/5)" required="required" />
+        </div>
+        <div class="ent">Mental Health:</div>
+        <div class="divi">
+          <input type="text" name="MentHlth" placeholder="Enter MentHlth" required="required" />
+        </div>
+        <div class="ent">Physical Health:</div>
+        <div class="divi">
+          <input type="text" name="PhysHlth" placeholder="Enter PhysHlth" required="required" />
+        </div>
+        <div class="ent">Diff Walk:</div>
+        <div class="divi">
+          <input type="text" name="DiffWalk" placeholder="Enter (0/1)" required="required" />
+        </div>
+        <div class="ent">Sex:</div>
+        <div class="divi">
+          <input type="text" name="Sex" placeholder="Enter (0=M/1=F)" required="required" />
+        </div>
+        <div class="ent">Age:</div>
+        <div class="divi">
+          <input type="text" name="Age" placeholder="Enter Age" required="required" />
+        </div>
+        <div class="ent">Education:</div>
+        <div class="divi">
+          <input type="text" name="Education" placeholder="Enter Education" required="required" />
+        </div>
+        <div class="ent">Income:</div>
+        <div class="divi">
+          <input type="text" name="Income" placeholder="Enter Income" required="required" />
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large" class="btn" id="bty">Predict</button>
+      </form>
+
+    </div>
+
+    <br>
+    <br>
+
+
+  </div>
+  {{prediction_text}}
+
+</body>
+
+</html>
