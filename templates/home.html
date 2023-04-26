@@ -4,17 +4,206 @@
 <head>
   <meta charset="UTF-8">
   <title>Diabetes Predictor</title>
-  <link rel="stylesheet" href="/home.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Sen:wght@700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+/* :root {} */
+
+body {
+    background-image: url("folder/pexels-mikhail-nilov-8670116.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.headr {
+    height: 130px;
+    width: 102%;
+    display: flex;
+    justify-content: center;
+    
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+
+    border-bottom-right-radius: 20px;
+}
+
+.navbar {
+    width: 100vw;
+    color: rgb(255, 255, 255);
+    display: flex;
+    position: sticky;
+}
+
+.headr::before {
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+
+    content: "";
+    position: absolute;
+    width: 102%;
+    height: 460vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+#logo {
+    margin: 10px 34px;
+}
+
+#logoimg {
+    margin: 26px 6px;
+    height: 59 px;
+    text-shadow: 2px 1px 2px black;
+
+}
+
+#diab {
+    width: 100vw;
+    font-size: 30px;
+    align-self: center;
+    margin-left: 400px;
+    font-family: Inter, sans-serif;
+    text-shadow: 3px 3px 2px black;
+
+
+}
+
+.conte {
+    margin: 50px 40px;
+}
+
+#conh {
+    font-size: 45px;
+    margin-bottom: 30px;
+    font-family: Sen, sans-serif;
+    text-shadow: 2px 2px 2px rgb(19, 13, 13);
+}
+
+#conp {
+    font-size: 19px;
+    margin: 20px 20px;
+    padding: 5px 5px;
+    font-family: Inter, sans-serif;
+    font-family: Sen, sans-serif;
+    font-weight: 400;
+    text-shadow: 1px 1px 1px black;
+
+}
+
+.container {
+    width: 55%;
+    padding: 50px;
+    margin: 106px auto;
+    border-radius: 25px;
+    background-color: rgba(41, 39, 39, 0.3);
+    box-shadow: 0 5px 30px black;
+}
+
+.container h1 {
+    text-align: center;
+    margin: 20px;
+    color: rgb(255, 255, 255);
+    font-family: Sen, sans-serif;
+    text-shadow: 2px 2px 2px black;
+
+
+}
+
+
+.divi {
+    padding: 7px;
+    margin: 9px auto;
+    font-size: 18px;
+    text-align: right;
+}
+
+.ent {
+    display: inline;
+    margin: 27px 12px;
+    padding: 16px;
+    position: relative;
+    left: 94px;
+    top: 42px;
+    font-size: 20px;
+    font-family: Sen, sans-serif;
+    text-shadow: 2px 1px 2px rgb(33, 25, 45);
+
+
+}
+
+.divi div {
+    text-align: left;
+    display: block;
+}
+
+.divi input {
+    padding: 5px;
+    text-align: center;
+    display: inline;
+    font-family: Sen, sans-serif;
+    border-radius: 8px;
+    font-size: 18px;
+    position: relative;
+    width: 350px;
+    right: 100px;
+    background-color: rgb(205, 227, 242);
+    box-shadow: 2px 1px 2px black;
+
+}
+
+.btn {
+    color: white;
+    background: black;
+    cursor: pointer;
+    padding: 4px 14px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 6px;
+    font-size: 15px;
+    font-family: "Play", sans-serif;
+}
+
+.btn:hover {
+    background-color: gray;
+}
+
+#bty {
+    display: block;
+    margin: 37px auto;
+    width: 301px;
+}
+
+.result {
+    text-align: center;
+    font-size: 30px;
+
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    text-shadow: 2px 1px 2px black;
+    padding: 20px 20px;
+}
+</style>
 </head>
 
 <body>
   <header class="headr">
     <nav class="navbar">
       <div class="hihi" id="logo">
-        <img src="/diabetes/logodb (2).png" alt="" height="50px" width="50px" id="logoimg">
+        <img src="folder/love-g761932168_640.png" alt="" height="50px" width="50px" id="logoimg">
       </div>
       <div class="hihi" id="diab">
         <h1>Diabetes Prediction</h1>
