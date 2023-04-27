@@ -52,7 +52,7 @@ body {
     content: "";
     position: absolute;
     width: 102%;
-    height: 460vh;
+    height: 760vh;
     top: 0;
     left: 0;
     z-index: -1;
@@ -74,7 +74,7 @@ body {
     width: 100vw;
     font-size: 30px;
     align-self: center;
-    margin-left: 400px;
+    margin-left: 300px;
     font-family: Inter, sans-serif;
     text-shadow: 3px 3px 2px black;
 
@@ -104,7 +104,7 @@ body {
 }
 
 .container {
-    width: 55%;
+    width: 75%;
     padding: 50px;
     margin: 106px auto;
     border-radius: 25px;
@@ -140,8 +140,29 @@ body {
     font-size: 20px;
     font-family: Sen, sans-serif;
     text-shadow: 2px 1px 2px rgb(33, 25, 45);
+    position: relative;
+    display: inline-block;
 
 
+}
+
+.ent .toolti {
+  visibility: hidden;
+  width: 220px;
+  background-color: rgb(109, 195, 244);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.ent:hover .toolti {
+  visibility: visible;
 }
 
 .divi div {
@@ -234,87 +255,166 @@ body {
 
     <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}" method="post">
-      <div class="ent">High BP:</div>
+      <div class="ent">High BP:
+        <span class="toolti">0 = no high BP<br> 1 = high BP</span>
+      </div>
       <div class="divi">
         <input type="text" name="HighBP" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">High Cholestrol:</div>
+      <div class="ent">High Cholestrol:
+        <span class="toolti">0 = no high cholesterol 
+          1 = high cholesterol</span>
+      </div>
       <div class="divi">
         <input type="text" name="HighChol" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">Cholestrol Check:</div>
+      <div class="ent">Cholestrol Check:
+        <span class="toolti">0 = no cholesterol check in 5 years 
+          1 = yes cholesterol check in 5 years</span>
+      </div>
       <div class="divi">
         <input type="text" name="CholCheck" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">BMI:</div>
+      <div class="ent">BMI:
+        <span class="toolti">Body Mass Index</span>
+      </div>
       <div class="divi">
         <input type="text" name="BMI" placeholder="Enter BMI" required="required" />
       </div>
-      <div class="ent">Smoker:</div>
+      <div class="ent">Smoker:
+        <span class="toolti">Have you smoked at least 100 cigarettes in your entire life? 
+          [Note: 5 packs = 100 cigarettes] 
+          0 = no 1 = yes</span>
+      </div>
       <div class="divi">
         <input type="text" name="Smoker" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">Stroke:</div>
+      <div class="ent">Stroke:
+        <span class="toolti">(Ever told) you had a stroke.
+           0 = no 1 = yes</span>
+      </div>
       <div class="divi">
         <input type="text" name="Stroke" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">Heart Disease:</div>
+      <div class="ent">Heart Disease:
+        <span class="toolti">coronary heart disease (CHD) 
+          or myocardial infarction (MI)
+           0 = no 1 = yes</span>
+      </div>
       <div class="divi">
         <input type="text" name="HeartDiseaseorAttack" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">Physical Activity:</div>
+      <div class="ent">Physical Activity:
+        <span class="toolti">physical activity in past 30 days 
+          - not including job 
+          0 = no 1 = yes</span>
+      </div>
       <div class="divi">
         <input type="text" name="PhysActivity" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">Fruits:</div>
+      <div class="ent">Fruits:
+        <span class="toolti">Consume Fruit 1 or more times per day
+           0 = no 1 = yes </span>
+      </div>
       <div class="divi">
         <input type="text" name="Fruits" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">Veggies:</div>
+      <div class="ent">Veggies:
+        <span class="toolti">Consume Vegetables 1 
+          or more times per day 
+          0 = no 1 = yes</span>
+      </div>
       <div class="divi">
         <input type="text" name="Veggies" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">Alcohol Consmp:</div>
+      <div class="ent">Alcohol Consmp:
+        <span class="toolti">
+          Heavy drinkers 
+          (adult men having more than 14 drinks per week 
+          and adult women having more than 7 drinks per week) 
+          0 = no ,1=yes
+        </span>
+      </div>
       <div class="divi">
         <input type="text" name="HvyAlcoholConsump" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">Any Health care:</div>
+      <div class="ent">Any Health care:
+        <span class="toolti">Have any kind of health care coverage,
+           including health insurance, 
+           prepaid plans such as HMO, etc. 
+           0 = no 1 = yes</span>
+      </div>
       <div class="divi">
         <input type="text" name="AnyHealthcare" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">No Doc BC Cost:</div>
+      <div class="ent">No Doc BC Cost:
+        <span class="toolti">Was there a time in the past 12 months 
+          when you needed to see a doctor 
+          but could not because of cost? 
+          0 = no 1 = yes</span>
+      </div>
       <div class="divi">
         <input type="text" name="NoDocbcCost" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">General Health:</div>
+      <div class="ent">General Health:
+        <span class="toolti">Would you say that in general 
+          your health is: scale 1-5 
+          1 = excellent 2 = very good 
+          3 = good 4 = fair 5 = poor</span>
+      </div>
       <div class="divi">
         <input type="text" name="GenHlth" placeholder="Enter (1/2/3/4/5)" required="required" />
       </div>
-      <div class="ent">Mental Health:</div>
+      <div class="ent">Mental Health:
+        <span class="toolti">Now thinking about your mental health, 
+          which includes stress, depression, 
+          and problems with emotions, for how </span>
+      </div>
       <div class="divi">
         <input type="text" name="MentHlth" placeholder="Enter MentHlth" required="required" />
       </div>
-      <div class="ent">Physical Health:</div>
+      <div class="ent">Physical Health:
+        <span class="toolti">Now thinking about your physical health, 
+          which includes physical illness and injury, 
+          for how many days during the past 30</span>
+      </div>
       <div class="divi">
         <input type="text" name="PhysHlth" placeholder="Enter PhysHlth" required="required" />
       </div>
-      <div class="ent">Diff Walk:</div>
+      <div class="ent">Diff Walk:
+        <span class="toolti">Do you have serious difficulty 
+          walking or climbing stairs? 
+          0 = no 1 = yes</span>
+      </div>
       <div class="divi">
         <input type="text" name="DiffWalk" placeholder="Enter (0/1)" required="required" />
       </div>
-      <div class="ent">Sex:</div>
+      <div class="ent">Sex:
+        <span class="toolti">0 = female 1 = male</span>
+      </div>
       <div class="divi">
         <input type="text" name="Sex" placeholder="Enter (0=M/1=F)" required="required" />
       </div>
-      <div class="ent">Age:</div>
+      <div class="ent">Age:
+        <span class="toolti">13-level age category (_AGEG5YR see codebook) 
+          1 = 18-24 9 = 60-64 13 = 80 or older</span>
+      </div>
       <div class="divi">
         <input type="text" name="Age" placeholder="Enter Age" required="required" />
       </div>
-      <div class="ent">Education:</div>
+      <div class="ent">Education:
+        <span class="toolti">Education level (EDUCA see codebook) 
+          scale 1-6 1 = Never attended school 
+          or only kindergarten 2 = Grades 1 through 8 </span>
+      </div>
       <div class="divi">
         <input type="text" name="Education" placeholder="Enter Education" required="required" />
       </div>
-      <div class="ent">Income:</div>
+      <div class="ent">Income:
+        <span class="toolti">Income scale (INCOME2 see codebook) 
+          scale 1-8 1 = less than $10,000 
+          5 = less than $35,000 8 = $75,000 or more </span>
+      </div>
       <div class="divi">
         <input type="text" name="Income" placeholder="Enter Income" required="required" />
       </div>
