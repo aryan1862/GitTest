@@ -18,13 +18,6 @@ def predict_api():
     data=request.json['data']
     new_data=scalar.transform(np.array(list(data.values())).reshape(1,-1))
     output=regmodel.predict(new_data)
-    # if(output[0]==1):
-    #     random_decimal = random.uniform(50, 100)
-    #     return jsonify(random_decimal)
-    # else:
-    #     random_decimal = random.uniform(10, 50)
-    #     return jsonify(random_decimal)
-    # return jsonify(45.902032)
     return jsonfy(output[0])
 
 @app.route('/predict',methods=['POST'])
